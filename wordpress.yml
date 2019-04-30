@@ -1,5 +1,5 @@
 ---
-- hosts        : docker-hosts
+- hosts        : all
   become       : True
   roles:
     - ansible-dockerized-wordpress
