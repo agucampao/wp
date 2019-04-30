@@ -1,0 +1,18 @@
+---
+# tasks file for ansible-dockerized-wordpress
+
+- name: "Launch database container"
+  docker_container:
+    name: db
+    image: mariadb
+    env:
+      MYSQL_ROOT_PASSWORD: example
+
+- name: "Launch wordpress container"
+  docker_container:
+    name: wordpress
+    image: wordpress
+    links:
+    - db:mysql
+    ports:
+    - 8080:80
